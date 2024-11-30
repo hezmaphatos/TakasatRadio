@@ -134,9 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  /**
-   * Init swiper slider with 1 slide at once in desktop view
-   */
   new Swiper('.slides-1', {
     speed: 600,
     loop: false,
@@ -156,20 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /**
-   * Init swiper slider with 2 slides at once in desktop view
-   */
   new Swiper('.slides-2', {
     speed: 600,
     loop: false,
-    slidesPerView: 3, // Dynamically adjust this value as needed
+    slidesPerView: 3,
     spaceBetween: 20,
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true,
       renderBullet: function (index, className) {
-        // Dynamically render bullets for visible slides
         const visibleSlides = Math.ceil(this.slides.length / this.params.slidesPerView);
         return index < visibleSlides ? `<span class="${className}"></span>` : '';
       },
@@ -190,15 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-
-  /**
-   * Initiate pURE cOUNTER
-   */
   new PureCounter();
-
-  /**
-   * Animation on scroll function and init
-   */
   function aos_init() {
     AOS.init({
       duration: 800,
@@ -262,18 +247,14 @@ function togglePlay() {
 
 function playMusic() {
     isPlaying = true;
-    // Change play button icon
     playBtn.classList.replace('fa-play', 'fa-pause');
-    // Set button hover title
     playBtn.setAttribute('title', 'Pause');
     music.play();
 }
 
 function pauseMusic() {
     isPlaying = false;
-    // Change pause button icon
     playBtn.classList.replace('fa-pause', 'fa-play');
-    // Set button hover title
     playBtn.setAttribute('title', 'Play');
     music.pause();
 }
